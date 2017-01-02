@@ -9,7 +9,7 @@ fi
 if [ "$1" = 'mongod' -a "$(id -u)" = '0' ]; then
 	[ -e /data/configdb ] || mkdir /data/configdb
 	[ -e /data/db ] || mkdir /data/db
-	chown -R mongodb /data/configdb /data/db
+	chown -R mongodb:mongodb /data/configdb /data/db
 	exec gosu mongodb "$BASH_SOURCE" "$@"
 fi
 
